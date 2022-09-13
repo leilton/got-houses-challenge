@@ -1,0 +1,30 @@
+{
+  "name": "got-houses-challenge",
+  "version": "1.0.0",
+  "description": "challenge for NewTail, a game about GoT and its houses",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "prod": "export SET NODE_ENV=production && node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leilton/got-houses-challenge.git"
+  },
+  "author": "Leilton César",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leilton/got-houses-challenge/issues"
+  },
+  "homepage": "https://github.com/leilton/got-houses-challenge#readme",
+  "dependencies": {
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.18.1",
+    "git-commit-msg-linter": "^4.1.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  }
+}
