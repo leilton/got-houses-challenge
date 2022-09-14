@@ -16,7 +16,7 @@ yarn or npm
 install dependences
 
 ```
-run npm i or yarn to install
+npm i or yarn to install
 ```
 
 rename .env
@@ -30,7 +30,7 @@ rename .env
 running api
 
 ```
-run npm start or yarn start
+npm run start or yarn start
 ```
 
 ### 📄 Documentation
@@ -51,6 +51,6 @@ ex.: http://localhost:36109/docs
 - FindByName House
 
 ```
-run npm test:local or yarn test:local
+npm run test:local or yarn test:local
 ```
 ---
