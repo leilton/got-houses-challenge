@@ -1,0 +1,104 @@
+openapi: 3.0.1
+paths:
+  /got/houses:
+  # [GET] House
+    get:
+      tags:
+      - Houses - Ice And Fire
+      summary: List all and ByName registered houses
+      parameters:
+      - name: name
+        in: query
+        description: house name 
+        required: false
+        type: string
+      responses:
+        200:
+          description: 'Success'
+        400:
+          description: 'Bad Request'
+        500:
+          description: 'Server Error'
+
+    # [POST] House
+    post:
+      tags:
+      - Houses - Ice And Fire
+      summary: register a new house
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/House'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/House'
+      responses:
+        200:
+          description: 'Success'
+        400:
+          description: 'Bad Request'
+        500:
+          description: 'Server Error'
+
+  /got/houses/{id}:
+  # [GET] House
+    get:
+      tags:
+      - Houses - Ice And Fire
+      summary: Find By Id house
+      parameters:
+      - name: id
+        in: "path"
+        description: unique house identifier
+        required: true
+        type: string 
+      responses:
+        200:
+          description: 'Success'
+        202:
+          description: 'Accepted'
+        400:
+          description: 'Bad Request'
+        500:
+          description: 'Server Error'
+
+    # [DELETE] House
+    delete:
+      tags:
+      - Houses - Ice And Fire
+      summary: Delete house
+      parameters:
+      - name: id
+        in: "path"
+        description: unique house identifier
+        required: true
+        type: string 
+      responses:
+        201:
+          description: 'Success'
+        400:
+          description: 'Bad Request'
+        500:
+          description: 'Server Error'
+
+components:
+  schemas:
+    House:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of this house
+        region:
+          type: string
+          description: The region that this house resides in.
+        founded:
+          type: string
+          description: The year that this house was founded.
+        currentLord:
+          type: string
+          description: The Character resource URL of this house's current lord.
+      xml:
+        name: House
