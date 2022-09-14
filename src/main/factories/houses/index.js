@@ -1,0 +1,1 @@
+exports.makeCreateHouseFactory = require('./create.factory');

@@ -1,0 +1,1 @@
+exports.House = require('./House');

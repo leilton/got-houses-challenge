@@ -1,0 +1,1 @@
+exports.CreateHouseController = require('./create.controller');

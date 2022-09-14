@@ -1,0 +1,1 @@
+exports.CreateHouseService = require('./create.service')
