@@ -7,7 +7,7 @@
     "start": "node server.js",
     "prod": "export SET NODE_ENV=production && node server.js",
     "dev": "cross-env NODE_ENV=development nodemon server.js",
-    "test:local": "jest --passWithNoTests --no-cache --runInBand --setupFiles dotenv/config",
+    "test:local": "jest --passWithNoTests --silent --no-cache --runInBand --setupFiles dotenv/config",
     "test:watch": "npm run test:local -- --watch",
     "test:watch:windows": "cross-env npm run test:local -- --watch",
     "test:coverage": "npm run test:local -- --coverage",
