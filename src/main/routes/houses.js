@@ -4,13 +4,15 @@ const { adaptExpressRoute } = require('../adapters/express-router')
 const { 
   createValidationHouse, 
   deleteValidationHouse,
-  findByIdValidationHouse
+  findByIdValidationHouse,
+  findValidationHouse
 } = require('../../application/validations/house')
 
 const { 
   makeCreateHouseFactory, 
   makeDeleteHouseFactory,
-  makeFindByIdController
+  makeFindByIdController,
+  makeFindController
 } = require('../factories/houses')
 
 const houseRoutes = async (router) => {
@@ -27,6 +29,11 @@ const houseRoutes = async (router) => {
   router.get('/houses/:id',
     findByIdValidationHouse,
     adaptExpressRoute(await makeFindByIdController())
+  );
+  
+  router.get('/houses',
+    findValidationHouse,
+    adaptExpressRoute(await makeFindController())
   );
 }
 

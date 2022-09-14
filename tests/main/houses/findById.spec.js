@@ -33,9 +33,7 @@ describe('findById house route', () => {
     await newHouse.save();
     
     const { status } = await request(app)
-      .delete(`/got/houses/${newHouse._id}`)
-
-    const deletedHouse = await House.findById(newHouse._id)
+      .get(`/got/houses/${newHouse._id}`)
 
     expect(status).toBe(200)
   })
