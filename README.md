@@ -19,6 +19,29 @@ install dependences
 run npm i or yarn to install
 ```
 
+rename .env
+
+```
+.env.example to .env
+```
+
+### 📦 Running
+
+running api
+
+```
+run npm start or yarn start
+```
+
+### 📄 Documentation
+
+all routes documentation
+
+```
+/docs
+ex.: http://localhost:36109/docs
+```
+
 ## ⚙️ Running the tests
 
 - Create House
