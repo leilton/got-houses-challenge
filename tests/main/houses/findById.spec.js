@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const app = require('../../../app')
 const { House } = require('../../../src/infra/models')
 
-describe('Delete house route', () => {
+describe('findById house route', () => {
   let id = new mongoose.Types.ObjectId();
 
   let houseMock = {
@@ -14,33 +14,29 @@ describe('Delete house route', () => {
     currentLord: "https://www.anapioficeandfire.com/api/characters/894"
   }
 
-  it('DELETE /got/houses/:id - should return 400 if ID is not 24 length', async () => {
+  it('GET /got/houses/:id - should return 400 if ID is not 24 length', async () => {
     const { status } = await request(app)
-      .delete(`/got/houses/asdf`)
+      .get(`/got/houses/asdf`)
     
     expect(status).toBe(400)
   })
 
-  it('DELETE /got/houses/:id - should return 404 if does not find any collection by id', async () => {
+  it('GET /got/houses/:id - should return 404 if does not find any collection by id', async () => {
     const { status } = await request(app)
-      .delete(`/got/houses/${id}`)
+      .get(`/got/houses/${id}`)
 
     expect(status).toBe(404)
   })
 
-  it('DELETE /got/houses/:id - should return 200 and no collection', async () => {
+  it('GET /got/houses/:id - should return 200 and one collection', async () => {
     const newHouse = new House(houseMock)
     await newHouse.save();
-    const house = await House.findById(newHouse._id)
-    expect(String(house._id)).toBe(String(newHouse._id))
-
-    const { status, body } = await request(app)
+    
+    const { status } = await request(app)
       .delete(`/got/houses/${newHouse._id}`)
 
     const deletedHouse = await House.findById(newHouse._id)
 
     expect(status).toBe(200)
-    expect(body.message).toBe('House successfully deleted')
-    expect(deletedHouse).toBe(null)
   })
 });

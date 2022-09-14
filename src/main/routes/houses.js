@@ -1,9 +1,17 @@
 'use strict';
 const { adaptExpressRoute } = require('../adapters/express-router')
 
-const { createValidationHouse, deleteValidationHouse } = require('../../application/validations/house')
+const { 
+  createValidationHouse, 
+  deleteValidationHouse,
+  findByIdValidationHouse
+} = require('../../application/validations/house')
 
-const { makeCreateHouseFactory, makeDeleteHouseFactory } = require('../factories/houses')
+const { 
+  makeCreateHouseFactory, 
+  makeDeleteHouseFactory,
+  makeFindByIdController
+} = require('../factories/houses')
 
 const houseRoutes = async (router) => {
   router.post('/houses',
@@ -14,6 +22,11 @@ const houseRoutes = async (router) => {
   router.delete('/houses/:id',
     deleteValidationHouse,
     adaptExpressRoute(await makeDeleteHouseFactory())
+  );
+  
+  router.get('/houses/:id',
+    findByIdValidationHouse,
+    adaptExpressRoute(await makeFindByIdController())
   );
 }
 
