@@ -1,4 +1,4 @@
-const { FindHouseService } = require('../../../data/house')
+const { FindHouseService } = require('../../../data/services/house')
 const { FindHouseController } = require('../../../application/controllers/houses')
 const { findAll, findHouseByOneParam } = require('../../../infra/repositories/houses')
 const { erroConstructor } = require('../../../application/error')

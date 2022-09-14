@@ -7,11 +7,11 @@
     "start": "node server.js",
     "prod": "export SET NODE_ENV=production && node server.js",
     "dev": "cross-env NODE_ENV=development nodemon server.js",
-    "test:local":"jest --passWithNoTests --no-cache --runInBand --setupFiles dotenv/config",
-    "test:watch":"npm run test:local -- --watch",
-    "test:watch:windows":"cross-env npm run test:local -- --watch",
-    "test:coverage":"npm run test:local -- --coverage",
-    "test:clear-cache":"jest --clearCache"
+    "test:local": "jest --passWithNoTests --no-cache --runInBand --setupFiles dotenv/config",
+    "test:watch": "npm run test:local -- --watch",
+    "test:watch:windows": "cross-env npm run test:local -- --watch",
+    "test:coverage": "npm run test:local -- --coverage",
+    "test:clear-cache": "jest --clearCache"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/leilton/got-houses-challenge#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.2",
     "dotenv-flow": "^3.2.0",

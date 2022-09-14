@@ -1,4 +1,4 @@
-const { DeleteHouseService } = require('../../../data/house')
+const { DeleteHouseService } = require('../../../data/services/house')
 const { DeleteHouseController } = require('../../../application/controllers/houses')
 const { findHouseById, deleteHouse } = require('../../../infra/repositories/houses')
 const { erroConstructor } = require('../../../application/error')
